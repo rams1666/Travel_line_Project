@@ -7,6 +7,7 @@ public class BusService {
 	public float fare,distance;
 	public String departureTime;
 	public String journeyTime;
+	
 	public BusService(int serviceId, int busCapacity, String serviceFrom, String serviceTo, float fare, float distance,
 			String departureTime, String journeyTime) {
 		super();
@@ -75,6 +76,17 @@ public class BusService {
 		return "BusService [serviceId=" + serviceId + ", busCapacity=" + busCapacity + ", serviceFrom=" + serviceFrom
 				+ ", serviceTo=" + serviceTo + ", fare=" + fare + ", distance=" + distance + ", departureTime="
 				+ departureTime + ", journeyTime=" + journeyTime + "]";
+	}
+	public BusService(int busCapacity, String serviceFrom, String serviceTo, float fare, float distance,
+			String departureTime, String journeyTime) {
+		super();
+		this.busCapacity = busCapacity;
+		this.serviceFrom = serviceFrom;
+		this.serviceTo = serviceTo;
+		this.fare = fare;
+		this.distance = distance;
+		this.departureTime = departureTime;
+		this.journeyTime = journeyTime;
 	}
 	
 	

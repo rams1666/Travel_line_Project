@@ -19,7 +19,7 @@ public class TicketDetailsDaoImpl implements TicketDetailsDao {
 		
 		try {
 			con = DBConnection.getConnection();
-			pst=con.prepareStatement("select t.ticket_no,t.booking_id,t.passenger_id,t.source_from,t.source_to,t.seat_no,t.fare,t.passenger_name,t.age,t.gender,t.journey_date from ticket_details t inner join booking b on t.booking_id=b.booking_id inner join passenger p on t.passenger_id=b.passenger_id");
+			pst=con.prepareStatement("select t.ticketNo,t.bookingId,t.passengerId,t.sourceFrom,t.sourceTo,t.seatNo,t.fare,t.passengerName,t.age,t.gender,t.journeyDate from ticketDetails t inner join booking b on t.bookingId=b.bookingId inner join passenger p on t.passengerId=b.passengerId");
 			pst.setInt(1, ticketNo);
 			rs=pst.executeQuery();
 			if(rs.next()) {
@@ -46,7 +46,7 @@ public class TicketDetailsDaoImpl implements TicketDetailsDao {
 	@Override
 	public int cancelTicket(int ticketNo) {
 		int count=0;
-		String sql="delete from ticket_Details where ticket_no=?";
+		String sql="delete from ticketDetails where ticketNo=?";
 		PreparedStatement pstmt=null;
 		try {
 			pstmt=DBConnection.getConnection()

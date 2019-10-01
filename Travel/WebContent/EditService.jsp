@@ -13,6 +13,10 @@
 <jsp:setProperty property="*" name="u"/>  
 <% BusService b=new BusService();
 AdminServiceImpl asi=new AdminServiceImpl();
+BusService busService=new BusService();
+
+
+
 int i=asi.updateDetails(b);  
 //request.setAttribute("data", i);
 if(i>0){  

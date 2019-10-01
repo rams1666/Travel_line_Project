@@ -59,7 +59,7 @@ background: white;
 <div align="center" ><br>
 <h3>Modify Services</h3>
 <form action="getservice" method="get">
-Service Number:<input type="number" min="1" name="service_no" required="required"><br><br>
+Service Number:<input type="number" min="100" name="service_no" required="required"><br><br>
 <button type="submit"  value="submit" id="submit">Submit</button>&nbsp;
 <button type="submit" onclick="location.href = 'Admin.html';"  value="cancel">cancel</button>&nbsp;<br>
 </form>

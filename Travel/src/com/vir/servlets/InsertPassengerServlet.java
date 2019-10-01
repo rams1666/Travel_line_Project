@@ -13,16 +13,16 @@ import com.vir.model.BusService;
 import com.vir.service.AdminServiceImpl;
 
 /**
- * Servlet implementation class AddServiceServlet
+ * Servlet implementation class InsertPassengerServlet
  */
-@WebServlet({ "/AddServiceServlet", "/add" })
-public class AddServiceServlet extends HttpServlet {
+@WebServlet({ "/InsertPassengerServlet", "/insertPassenger" })
+public class InsertPassengerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddServiceServlet() {
+    public InsertPassengerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +32,18 @@ public class AddServiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		// TODO Auto-generated method stub
+		//doGet(request, response);
 		response.setContentType("text/html");  
 		PrintWriter out=response.getWriter();
-	    String from=(request.getParameter("from"));
+	    String from=(request.getParameter("pname"));
 	    String to=(request.getParameter("to"));
 	    int capacity = Integer.parseInt(request.getParameter("capacity"));
 	    float fare =Float.parseFloat(request.getParameter("fare"));
@@ -75,5 +76,4 @@ public class AddServiceServlet extends HttpServlet {
 		out.close();
 	}
 	}
-
 

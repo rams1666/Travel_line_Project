@@ -80,11 +80,11 @@ BusService u=as.getService(serviceId);
 <tr><th>Fare:</th><td>  
 <input type="text" name="fare" value="<%= u.getFare()%>"/></td></tr> 
 <tr><th>Distance:</th><td>  
-<input type="text" name="distance" value="<%= u.getDistance()%>"/></td></tr> 
+<input type="number" name="distance" value="<%= u.getDistance()%>"/></td></tr> 
 <tr><th>Departure Time:</th><td>  
 <input type="text" name="deaparture" value="<%= u.getDepartureTime()%>"/></td></tr> 
 <tr><th>Journey Time:</th><td>  
-<input type="text" name="journey" value="<%= u.getJourneyTime()%>"/></td></tr> 
+<input type="number" name="journey" value="<%= u.getJourneyTime()%>"/></td></tr> 
   
 <tr><td colspan="2"><input type="submit" value="update"/></td></tr>  
 </table>  

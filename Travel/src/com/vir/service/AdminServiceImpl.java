@@ -37,11 +37,11 @@ public class AdminServiceImpl implements AdminService {
 		return aDao.updateDetails(b);
 	}
 
-	@Override
+	/*@Override
 	public List<Booking> viewFeedback() {
 		
 		return aDao.viewFeedback();
 	}
-
+*/
 	
 }

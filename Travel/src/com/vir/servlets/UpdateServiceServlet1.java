@@ -1,3 +1,4 @@
+
 package com.vir.servlets;
 
 import java.io.IOException;
@@ -10,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.vir.model.BusService;
-import com.vir.service.AdminService;
 import com.vir.service.AdminServiceImpl;
-import com.vir.service.BusServiceServiceImpl;
 
 /**
  * Servlet implementation class UpdateService1
@@ -45,22 +44,24 @@ public class UpdateServiceServlet1 extends HttpServlet {
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
           
-       // int sid = Integer.parseInt(request.getParameter("service_no"));  
+       int sid = Integer.parseInt(request.getParameter("sid"));  
         String source=request.getParameter("from");
 		String destination= request.getParameter("to");
-		int capacity=Integer.parseInt(request.getParameter("capacity"));
+		
 		float fare=Float.parseFloat(request.getParameter("fare"));
 		float distance=Float.parseFloat(request.getParameter("distance"));
+		int capacity=Integer.parseInt(request.getParameter("capacity"));
 		String departure= request.getParameter("deaparture");
 		String journey= request.getParameter("journey");  
-          
+          //BusService busService = new BusService(capacity,source,destination,fare,distance,departure,journey);
         BusService e=new BusService();  
-        //e.setServiceId(sid);  
+        e.setServiceId(sid);  
         e.setServiceFrom(source);  
         e.setServiceTo(destination);  
-        e.setBusCapacity(capacity);
+       
         e.setFare(fare);
         e.setDistance(distance);
+        e.setBusCapacity(capacity);
         e.setDepartureTime(departure);
         e.setJourneyTime(journey);
         AdminServiceImpl asi = new AdminServiceImpl();

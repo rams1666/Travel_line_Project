@@ -62,30 +62,29 @@ background: white;
   
 <%  
 String id=request.getParameter("service_no"); 
-
 AdminServiceImpl as=new AdminServiceImpl();
 BusService u=as.getService(Integer.parseInt(id));
 request.getAttribute("empdetails");
 %>  
   
 <h1>Edit Form</h1>  
-<form action="EditService.jsp" method="post">  
-<input type="hidden" name="id" value="<%=u.getServiceId() %>"/>  
+<form action="updated" method="post">  
+<input type="hidden" name="sid" value="<%=u.getServiceId() %>"/>  
 <table border="1" width="90%">  
 <tr><th>From:</th><td>  
-<input type="text" name="from" value="<%= u.getServiceFrom()%>"/></td></tr>  
+<input type="text" name="from" value="<%= u.getServiceFrom()%>" disabled="disabled"/></td></tr>  
 <tr><th>To:</th><td>  
-<input type="text" name="to" value="<%= u.getServiceTo()%>"/></td></tr>  
-<tr><th>Capacity:</th><td>  
-<input type="number" name="capacity" value="<%= u.getBusCapacity()%>"/></td></tr>  
+<input type="text" name="to" value="<%= u.getServiceTo()%> "disabled="disabled"/></td></tr>  
 <tr><th>Fare:</th><td>  
 <input type="text" name="fare" value="<%= u.getFare()%>"/></td></tr> 
 <tr><th>Distance:</th><td>  
-<input type="text" name="distance" value="<%= u.getDistance()%>"/></td></tr> 
+<input type="number" min=100 name="distance" value="<%= u.getDistance()%>"/></td></tr> 
+<tr><th>Capacity:</th><td>  
+<input type="number" name="capacity" value="<%= u.getBusCapacity()%>" disabled="disabled"/></td></tr> 
 <tr><th>Departure Time:</th><td>  
 <input type="text" name="deaparture" value="<%= u.getDepartureTime()%>"/></td></tr> 
 <tr><th>Journey Time:</th><td>  
-<input type="text" name="journey" value="<%= u.getJourneyTime()%>"/></td></tr>   
+<input type="number" name="journey" value="<%= u.getJourneyTime()%>"/></td></tr>   
 <tr><td colspan="2"><input type="submit" value="update"/></td></tr>  
 </table>  
 </form>  

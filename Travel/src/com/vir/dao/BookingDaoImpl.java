@@ -27,19 +27,19 @@ public class BookingDaoImpl implements BookingDao{
 		PreparedStatement ps ;
 		try {
 			con=DBConnection.getConnection();
-			String query = "insert into Booking values(SQL_booking_id.nextval,?,?,?,?,?,?,?,?,?,?";
+			String query = "insert into Booking values(?,?,?,?,?,?,?,?,?,?";
 			ps=con.prepareStatement(query);
-			ps.setInt(1, id);
-			ps.setString(2,  jDate);
-			ps.setString(3, bDate);
-			ps.setInt(4,serviceId);
-			ps.setInt(5,passengerId);
-			ps.setInt(6, seats);
-			ps.setDouble(7, fare);
-			ps.setDouble(8, cardNo);
-			ps.setString(9, comments);
-			ps.setString(10, from);
-			ps.setString(11, to);
+			//ps.setInt(1, id);
+			ps.setString(1,  jDate);
+			ps.setString(2, bDate);
+			ps.setInt(3,serviceId);
+			ps.setInt(4,passengerId);
+			ps.setInt(5, seats);
+			ps.setDouble(6, fare);
+			ps.setDouble(7, cardNo);
+			ps.setString(8, comments);
+			ps.setString(9, from);
+			ps.setString(10, to);
 			int i = ps.executeUpdate();
 				return "SUCCESS"; 
 
@@ -58,7 +58,7 @@ public class BookingDaoImpl implements BookingDao{
 		   int status=0;  
 	        try{  
 	        	Connection con = DBConnection.getConnection();
-	        	String sql = "DELETE FROM booking where booking_id = ?";
+	        	String sql = "DELETE FROM booking where bookingId = ?";
 	            PreparedStatement ps=con.prepareStatement(sql);  
 	            ps.setInt(1,bookingId);  
 	            status=ps.executeUpdate();  

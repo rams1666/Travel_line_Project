@@ -33,7 +33,7 @@ public class SelectSeatServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		int serviceId =Integer.parseInt( request.getParameter("service_no")); 
+		int serviceId =Integer.parseInt(request.getParameter("serviceId")); 
 
 		AdminServiceImpl asi = new AdminServiceImpl();
 		BusService service = asi.getService(serviceId);

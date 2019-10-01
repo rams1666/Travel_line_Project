@@ -10,7 +10,7 @@ public interface AdminService {
 	BusService getService(int serviceId);
 	List<BusService> getAllService();
 	boolean cancelService(int serviceId);
-	List<Booking> viewFeedback();
+	/*List<Booking> viewFeedback();*/
 	int updateDetails(BusService b);
 	String addService(BusService b);
 }

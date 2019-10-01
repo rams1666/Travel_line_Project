@@ -18,10 +18,10 @@ public class PassengerServiceImpl implements PassengerService {
 		return pDao.insertDetails(p);
 	}
 
-	@Override
+	/*@Override
 	public String insertFeedback(Passenger p) {
 		
 		return pDao.insertFeedback(p);
 	}
-
+*/
 }

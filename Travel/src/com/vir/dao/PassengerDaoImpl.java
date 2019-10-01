@@ -8,9 +8,6 @@ import com.vir.model.Passenger;
 import com.vir.util.DBConnection;
 
 public class PassengerDaoImpl implements PassengerDao {
-
-
-
 	@Override
 	public Passenger getDetails(int passengerId) {
 		Connection con=DBConnection.getConnection();
@@ -19,7 +16,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			pst=con.prepareStatement("select * from passenger where passenger_id=?");
+			pst=con.prepareStatement("select * from passenger where passengerId=?");
 			pst.setInt(1,passengerId);
 			rs=pst.executeQuery();
 
@@ -28,10 +25,12 @@ public class PassengerDaoImpl implements PassengerDao {
 				bs.setPassengerId(rs.getInt(1));
 				bs.setPassengerName(rs.getString(2));
 				bs.setAge(rs.getInt(3));
-				bs.setMailId(rs.getString(4));
-				bs.setMobile(rs.getInt(5));
+				bs.setSeatNo(rs.getInt(4));
+				bs.setFare(rs.getFloat(5));
+				/*bs.setMailId(rs.getString(4));
+				bs.setMobile(rs.getInt(5));*/
 				bs.setGender(rs.getString(6));
-				bs.setComments(rs.getString(7));
+				/*bs.setComments(rs.getString(7));*/
 
 			}
 
@@ -65,25 +64,29 @@ public class PassengerDaoImpl implements PassengerDao {
 		int pid=p.getPassengerId();
 		String pname = p.getPassengerName();
 		int age= p.getAge();
-		int mobile= p.getMobile();
-		String mailId = p.getMailId();
+		int seatNo = p.getSeatNo();
+		float fare = p.getFare();
+		/*int mobile= p.getMobile();
+		String mailId = p.getMailId();*/
 		String gender= p.getGender();
 
 		Connection con = null;
-		PreparedStatement preparedStatement = null;
+		PreparedStatement pSt = null;
 
 		try
 		{  
 			con = DBConnection.getConnection();
-			String query = "insert into passenger values(SQL_passenger_id.nextval,?,?,?,?,?)"; //Insert user details into the table 'USERS'
-			preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
-			preparedStatement.setInt(1, pid);
-			preparedStatement.setString(2, pname);
-			preparedStatement.setInt(3,age);
-			preparedStatement.setString(4, mailId);
-			preparedStatement.setInt(5, mobile);
-			preparedStatement.setString(6,gender);
-			int i= preparedStatement.executeUpdate();
+			String query = "insert into passenger(passengerId,passengerName,age,seatNo,fare,gender) values(?,?,?,?,?,?)"; //Insert user details into the table 'USERS'
+			pSt = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
+			pSt.setInt(1, pid);
+			pSt.setString(2, pname);
+			pSt.setInt(3,age);
+			pSt.setInt(4, seatNo);
+			pSt.setFloat(5, fare);
+			/*preparedStatement.setString(4, mailId);
+			preparedStatement.setInt(5, mobile);*/
+			pSt.setString(6,gender);
+			int i= pSt.executeUpdate();
 			if (i!=0)  //Just to ensure data has been inserted into the database
 				return "SUCCESS"; 
 		}
@@ -95,7 +98,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		return "Oops.. Something went wrong there..!";
 	}
 
-	@Override
+	/*@Override
 	public String insertFeedback(Passenger p) {
 		int pid=p.getPassengerId();
 		String comments = p.getComments();
@@ -105,7 +108,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		try
 		{  
 			con = DBConnection.getConnection();
-			String query = "update passenger set comments=? where passenger_id=?"; //Insert user details into the table 'USERS'
+			String query = "update passenger set comments=? where passengerId=?"; //Insert user details into the table 'USERS'
 			preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
 
 			preparedStatement.setString(1, comments);
@@ -124,5 +127,5 @@ public class PassengerDaoImpl implements PassengerDao {
 		return "Oops.. Something went wrong there..!";
 
 	
-}
+}*/
 }

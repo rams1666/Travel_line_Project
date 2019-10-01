@@ -7,7 +7,7 @@ public interface PassengerDao {
 	
 	Passenger getDetails(int passengerId);
 	
-	String insertFeedback(Passenger p);
+	/*String insertFeedback(Passenger p);*/
 	
 	
 }

@@ -52,6 +52,7 @@ background: white;
 
 <div class="topnav">
 <a href="Modify_Service.jsp">Modify Service</a>
+<a href="schedule">Schedule</a>
 <a href="Admin_login.jsp">Logout</a></div>
 </div>
 <div align="center" style="border-style: solid;" ><br>
@@ -59,29 +60,32 @@ background: white;
 <h3>Add Service</h3>
 
 <form id="add_service_form" method="post" name="myform" action="add">
+<pre>
 From:<select name="from">
 <option>Hyderabad</option>
 <option>Tuni</option>
 <option>kakinada</option>
 <option>Vizag</option>
-</select><br><br>
+</select>
 To:<select name="to">
-<option>Hyderabad</option>
 <option>Tuni</option>
+<option>Hyderabad</option>
+
 <option>kakinada</option>
 <option>Vizag</option>
-</select><br><br>
-Capacity:<input type="number" name="capacity" required="required"><br>
+</select>
+Capacity:<input type="number" name="capacity" min=36 max=36 >
 <!-- Type:<select name="type">
 <option>A/C Bus</option>
 <option>Non A/C bus</option>
 </select><br><br> -->
-Fare:<input type="text" name="fare" required="required"><br><br>
-Distance(kms):<input type="text" name="distance" required="required"><br><br>
-Departure Time(hrs):<input type="text" name="departureTime" required="required"><br><br>
-Journey Time(hrs):<input type="number" name="jTime"><br><br>
+Fare:<input type="number" name="fare" min=400 required="required">
+Distance(kms):<input type="text" name="distance" required="required">
+Departure date:<input type="text" name="departureTime" placeholder="yyyy-mm-dd" required="required">
+Journey Time(hrs):<input type="number" min=3 max=15 name="jTime">
+</pre>
 <!--  Service No:<input type="text" name="serviceno" required="required"><br>-->
-<button type="submit"  value="submit"  id="submit">submit</button>&nbsp;
+<button type="submit"  value="submit"  id="submit" onclick="Admin.html">submit</button>&nbsp;
 <button onclick="location.href = 'Admin.jsp';" id="myButton" name="">cancel</button>
 </form>
 </div>

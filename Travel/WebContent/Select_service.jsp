@@ -31,8 +31,8 @@ table, th {
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
-	padding-top: 0px;
-	margin-left: 1em;
+	padding-top: 10px;
+	margin-left: 5em;
 }
 
 /* Change color on hover */
@@ -46,10 +46,7 @@ table, th {
 }
 </style>
 <script>
-	function myFunction() {
-		var x = document.getElementById("myRadio").value;
-		document.getElementById("demo").innerHTML = x;
-	}
+	
 </script>
 </head>
 <body>
@@ -70,7 +67,7 @@ table, th {
 
 			<h3>Select Services</h3>
 
-			<form action="seat" method="post">
+			<form action="seat" method="get">
 				<%
 					BusService bs = new BusService();
 					BusServiceServiceImpl bsl = new BusServiceServiceImpl();
@@ -91,8 +88,7 @@ table, th {
 						<td>${dtime}</td>
 					</tr>
 				</table>
-				<br>
-				<br>
+				<br> <br>
 
 				<table style="width: 100%" border="100px" name="tab2">
 					<tr>
@@ -109,10 +105,14 @@ table, th {
 
 					</tr>
 
-					<c:forEach items="${listData}" var="bs">
-						<tr>
-							<td><input type="radio" name="radioButton" value="${bs}"></td>
-							<td>${bs.serviceId }</td>
+
+					<c:forEach var="bs" items="${listData}" varStatus="status">
+						<tr><%-- 
+							<td><input type="radio" name="radioButton"
+								value="${status.count}"></td> --%>
+								
+							<td>${bs.serviceId }
+							<input type="hidden" name="serviceId" value="${bs.serviceId }"></td>
 							<td>${bs.serviceFrom }</td>
 							<td>${bs.serviceTo }</td>
 							<td>${bs.fare }</td>
@@ -120,14 +120,12 @@ table, th {
 							<td>${bs.busCapacity }</td>
 							<td>${bs.departureTime }</td>
 							<td>${bs.journeyTime }</td>
+							<td><button type="submit" value="submit" >submit</button></td>
 						</tr>
 
 					</c:forEach>
 
 				</table>
-
-				<button type="submit" value="submit" onclick="myFunction()">submit</button>
-				<button type="reset" value="reset">reset</button>
 				<br>
 				<button onclick="location.href = 'Bus_Home.html';" id="myButton"
 					name="back">back</button>

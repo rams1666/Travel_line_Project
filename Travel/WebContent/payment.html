@@ -74,11 +74,11 @@ color:blue;
 
 <h2>Payment Form</h2>
 <form action="Ticket.html" method="post">
-<div style="width:350px;height:150px;border:1px solid #000;color:blue;background-color:LightGray"><br>
+<div style="width:350px;height:130px;border:1px solid #000;color:blue;background-color:LightGray"><br>
 <pre>
-card holder name:<input type="text" id="card holder name" name="card holder name" required="required"><br>
-      card number:<input type="number" name="card number" name="number" required="required"><br>
-           total fare:<input type="Number" min="1"  name="fare" disabled><br>
+card holder name:<input type="text" id="card holder name" name="card holder name" pattern="[a-z A-Z]+" placeholder="enter alphabets only" required="required"><br>
+      card number:<input type="text" name="card number" name="number" pattern="[3-6][0-9]{13,16}" placeholder="enter 13/16 digit card number" required="required"><br>
+                  fare:<input type="number" name="fare" value="<%= u.getFare()%>" disabled/></td></tr> 
 </pre>
 <button type="submit"  value="submit"onclick="Ticket.html">submit</button>
 <button type="reset"  value="reset">reset</button><br>

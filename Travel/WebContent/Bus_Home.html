@@ -68,8 +68,19 @@ background: white;
 
 <h3>Searching for bus</h3>
 <form action="admin" method="get">
-From:<input type="text" id="form" name="from" required="required">
-To:      <input type="text" id="to" name="to" required="required">
+From:<select name="from">
+<option>Hyderabad</option>
+<option>Tuni</option>
+<option>kakinada</option>
+<option>Vizag</option>
+</select>
+To:<select name="to">
+<option>Tuni</option>
+<option>Hyderabad</option>
+
+<option>kakinada</option>
+<option>Vizag</option>
+</select>
 Date:<input type="date" id="date" name="dtime" required="required" placeholder="dd/mm/yyyy">
 <button type="submit"  value="submit">submit</button>
 <button type="reset"  value="reset">reset</button><br>

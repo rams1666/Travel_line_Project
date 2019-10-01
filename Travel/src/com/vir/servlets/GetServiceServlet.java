@@ -9,13 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.vir.model.BusService;
 import com.vir.service.AdminService;
 import com.vir.service.AdminServiceImpl;
-import com.vir.service.BusServiceService;
-import com.vir.service.BusServiceServiceImpl;
 
 /**
  * Servlet implementation class GetServiceServlet

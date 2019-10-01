@@ -1,7 +1,5 @@
 package com.vir.model;
 
-import java.util.Date;
-
 public class Booking {
 	private int bookingId,serviceId,passengerId,noOfSeats,cardNo;
 	private String journeyDate,bookingDate;

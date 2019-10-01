@@ -6,4 +6,5 @@ public interface BookingDao {
 	
 	String insertBookingDetails(Booking b);
 	int	cancelBooking(int bookingId);
+	
 }

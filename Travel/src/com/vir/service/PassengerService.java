@@ -6,5 +6,5 @@ public interface PassengerService {
 	String insertDetails(Passenger p);
 
 	Passenger getDetails(int passengerId);
-	String insertFeedback(Passenger p);
+	/*String insertFeedback(Passenger p);*/
 }

@@ -1,21 +1,17 @@
 package com.vir.model;
 
 public class Passenger {
-	private int passengerId,age,mobile;
-	private String passengerName,mailId,gender,comments;
-	public Passenger(int passengerId, int age, int mobile, String passengerName, String mailId, String gender,
-			String comments) {
+	private int passengerId,age,seatNo;
+	private String passengerName,gender;
+	private  float fare;
+	public Passenger(int passengerId, int age, int seatNo, String passengerName, String gender, float fare) {
 		super();
 		this.passengerId = passengerId;
 		this.age = age;
-		this.mobile = mobile;
+		this.seatNo = seatNo;
 		this.passengerName = passengerName;
-		this.mailId = mailId;
 		this.gender = gender;
-		this.comments = comments;
-	}
-	public Passenger() {
-		super();
+		this.fare = fare;
 	}
 	public int getPassengerId() {
 		return passengerId;
@@ -29,11 +25,11 @@ public class Passenger {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getMobile() {
-		return mobile;
+	public int getSeatNo() {
+		return seatNo;
 	}
-	public void setMobile(int mobile) {
-		this.mobile = mobile;
+	public void setSeatNo(int seatNo) {
+		this.seatNo = seatNo;
 	}
 	public String getPassengerName() {
 		return passengerName;
@@ -41,30 +37,26 @@ public class Passenger {
 	public void setPassengerName(String passengerName) {
 		this.passengerName = passengerName;
 	}
-	public String getMailId() {
-		return mailId;
-	}
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
-	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getComments() {
-		return comments;
+	public float getFare() {
+		return fare;
 	}
-	public void setComments(String comments) {
-		this.comments = comments;
+	public void setFare(float fare) {
+		this.fare = fare;
+	}
+	public Passenger() {
+		super();
 	}
 	@Override
 	public String toString() {
-		return "Passenger [passengerId=" + passengerId + ", age=" + age + ", mobile=" + mobile + ", passengerName="
-				+ passengerName + ", mailId=" + mailId + ", gender=" + gender + ", comments=" + comments + "]";
+		return "Passenger [passengerId=" + passengerId + ", age=" + age + ", seatNo=" + seatNo + ", passengerName="
+				+ passengerName + ", gender=" + gender + ", fare=" + fare + "]";
 	}
 	
-	
-	
+ 	
 }

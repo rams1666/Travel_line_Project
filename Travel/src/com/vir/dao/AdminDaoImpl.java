@@ -25,7 +25,7 @@ public class AdminDaoImpl implements AdminDao{
 
 		try {
 			
-			String st="select * from service where service_id=?";
+			String st="select * from service where serviceId=?";
 			pst=(PreparedStatement) con.prepareStatement(st);
 			pst.setInt(1, serviceId);
 			java.sql.ResultSet rs = pst.executeQuery();
@@ -107,7 +107,7 @@ public class AdminDaoImpl implements AdminDao{
 		PreparedStatement ps ;
 		try {
 			con=DBConnection.getConnection();
-			String query = "insert into Service(source_from,source_to,fare,distance_kms,capacity,departion_time,journey_time) values (?,?,?,?,?,?,?)";
+			String query = "insert into Service(sourceFrom,sourceTo,fare,distanceKms,capacity,departionTime,journeyTime) values (?,?,?,?,?,?,?)";
 			ps=(PreparedStatement) con.prepareStatement(query);
 			//ps.setInt(1, id);
 			ps.setString(1,from);
@@ -158,7 +158,7 @@ public class AdminDaoImpl implements AdminDao{
 
 
 
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public List<Booking> viewFeedback() {
 		List<Booking> list=new ArrayList<Booking>();
@@ -169,7 +169,7 @@ public class AdminDaoImpl implements AdminDao{
 		m.addAll(list2);
 		Booking b=new Booking(); 
 		Passenger p = new Passenger();
-		String sql="select passenger_name,mail_id,comments from booking b inner join passenger p on b.passenger_id=p.passenger_id where service_id=?";
+		String sql="select passengerName,mailId,comments from booking b inner join passenger p on b.passenger_id=p.passenger_id where service_id=?";
 		try{  
 			Connection con = DBConnection.getConnection(); 
 			PreparedStatement ps=(PreparedStatement) con.prepareStatement(sql);  
@@ -184,33 +184,33 @@ public class AdminDaoImpl implements AdminDao{
 		}catch(Exception e){e.printStackTrace();}  
 
 		return m;  
-	}
+	}*/
 
 	@Override
 	public int updateDetails(BusService b) {
-		String sql="update service set source_from = ?,  source_to  = ? , fare =?,distance_kms =?, capacity=?,departion_time=?,journey_time =? where service_id = ?"; 
+		String sql="update service set sourceFrom = ?,  sourceTo  = ? , fare =?,distanceKms =?, capacity=?,departionTime=?,journeyTime =? where serviceId = ?"; 
 		Connection con = null;
+		java.sql.PreparedStatement ps=null;
 		int status=0;
 		try{
 			con = DBConnection.getConnection();
-			PreparedStatement ps=(PreparedStatement) con.prepareStatement(sql);
-			
+			 ps= con.prepareStatement(sql);
+			 
 			ps.setString(1,b.getServiceFrom());
 			ps.setString(2,b.getServiceTo());
-			
-			
-			ps.setFloat(3,b.getFare());
+			ps.setDouble(3,b.getFare());
 			ps.setFloat(4,b.getDistance());
 			ps.setInt(5,b.getBusCapacity());
 			ps.setString(6, b.getDepartureTime());
 			ps.setString(7, b.getJourneyTime());
 			ps.setInt(8,b.getServiceId());
-
 			status=ps.executeUpdate();
-			con.getAutoCommit();
+			//con.commit();
+			ps.close();
 			con.close();
-		}catch(Exception ex){ex.printStackTrace();}
-
+		}catch(Exception ex){ex.printStackTrace();
+		}
+		System.out.println(status);
 		return status;
 
 	}
