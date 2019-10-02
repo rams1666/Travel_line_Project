@@ -81,9 +81,9 @@ PassengerServiceImpl ps=new PassengerServiceImpl();
 
 request.getAttribute("pdetails");%>
 <form action="paymentgateway" method="get">
-<div style="width:350px;height:130px;border:1px solid #000;color:blue;background-color:LightGray"><br>
+<div style="width:550px;height:130px;border:10px solid #000;color:blue;background-color:LightGray"><br>
 
-<table >
+<table style="width: 100%; border:100px">
 <tr>
 <th>Passenger No</th>
 <th>Passenger Name</th>
@@ -108,7 +108,7 @@ request.getAttribute("pdetails");%>
 
 <button type="submit"  value="submit">Proceed</button>
 
-<button  type="cancel" onclick="location.href='Bus_Home.html';">cancel</button>
+<button  type="cancel" onclick="location.href='Bus_Home.html';">back</button>
 </div> 
 </form>
 

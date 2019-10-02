@@ -128,17 +128,7 @@ table, th {
 	<div align="center">
 		<div class="row info"></div>
 		<hr />
-		<!--<div style="width: 350px; float:left; height:200px;border:1px solid #000;color:blue;background-color:LightGray;margin:10px">-->
-
 		
-		<%-- <%
-					BusService bs = new BusService();
-					
-					request.getAttribute("listData");
-					request.getAttribute("from");
-					request.getAttribute("to");
-					request.getAttribute("dtime");
-				%> --%>
 				<%request.getAttribute("seat"); %>
 		<table style="width: 100%" border="100px">
 			<tr>
@@ -165,14 +155,7 @@ table, th {
 			<br>
 			<body>
 				<form id="f1" name="f1" method="post" action="insertPassenger">
-					<!--<input name="checkbox" type="checkbox" id="checkbox" value="1" />
-    1
-    <input name="checkbox" type="checkbox" id="checkbox" value="2" />
-    2
-    <input name="checkbox" type="checkbox" id="checkbox" value="3" />
-    3
-    <input name="checkbox" type="checkbox" id="checkbox" value="4" />
-    4<br />-->
+					
 					<div class="seats">
 						<div class="row">
 							<div class="col-sm-4">

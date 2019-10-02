@@ -60,10 +60,15 @@ public class InsertPassengerServlet extends HttpServlet {
 		p.setSeatNo(seatno);
 		
 		PassengerServiceImpl psi = new PassengerServiceImpl();
+		/*
+		 * String details = psi.insertDetails(p); request.setAttribute("pdetails", p);
+		 */
 		String details = psi.insertDetails(p);
-		request.setAttribute("pdetails", p);
 		if(details.equals("SUCCESS"))   
 		{
+			
+			request.setAttribute("pdetails", p);
+			
 			System.out.println("sucess msg");
 			out.print("<p>Record saved successfully!</p>");  
 			request.getRequestDispatcher("/PassengerPreview.jsp").include(request, response); 
