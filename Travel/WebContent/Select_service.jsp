@@ -92,7 +92,7 @@ table, th {
 
 				<table style="width: 100%" border="100px" name="tab2">
 					<tr>
-						<th>select</th>
+						
 						<th>Service No</th>
 						<th>From</th>
 						<th>To</th>
@@ -101,7 +101,7 @@ table, th {
 						<th>Capacity</th>
 						<th>Departure Time</th>
 						<th>Journey Time</th>
-
+						<th>select</th>
 
 					</tr>
 

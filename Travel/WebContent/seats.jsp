@@ -71,16 +71,16 @@ table, th {
 	function add() {
 		var boxes = document.f1.checkbox.length;
 		var txt = "";
-		var fare = 0;
+		//var fare = 0;
 		num = 1;
 		for (var i = 0; i < boxes; i++) {
 			if (document.f1.checkbox[i].checked) {
 				txt = document.f1.checkbox[i].value + " ";
 			}
 		}
-		fare = 400;
+		//fare = 400;
 		document.f1.text2.value = txt;
-		document.f1.text4.value = fare;
+		//document.f1.text4.value = fare;
 	}
 
 	function countCheckboxes() {
@@ -148,17 +148,7 @@ table, th {
 				<th>Journey Date</th>
 			</tr>
 			<tr>
-			<%-- <td><%
-			out.print(request.getParameter("serviceId"));
-		%></td> --%>
-				<%-- <td><% out.print((int)session.getAttribute("service"));
-				%></td>
-				<td><% out.print(session.getAttribute("from"));
-				%></td>
-				<td><% out.print(session.getAttribute("to"));
-				%></td>
-				<td><% out.print(session.getAttribute("date"));
-				%></td> --%>
+			
 				<td><c:out value="${seat.serviceId }" /></td>
 			    <td><c:out value="${seat.serviceFrom }" /></td>
 				<td><c:out value="${seat.serviceTo }" /></td>
@@ -281,16 +271,16 @@ table, th {
 					pattern="[a-z A-Z]+" /></TD>
 				<TD>age<INPUT type="number" min="1" required="required" name="age" /></TD>
 				<TD>Gender <SELECT name="gender">
-						<OPTION value="in">Male</OPTION>
-						<OPTION value="de">Female</OPTION>
-						<OPTION value="fr">Other</OPTION>
+						<OPTION value="male">Male</OPTION>
+						<OPTION value="female">Female</OPTION>
+						<OPTION value="other">Other</OPTION>
 				</SELECT>
 				</TD>
-				<td>fare:<input type="text" name="fare" id="text4" disabled /></td>
+				<td>fare:<input type="text" name="fare" id="text4" value="${seat.fare }"   /></td>
 
 
-				<TD>seat number:<input type="text" name="seatno" id="text2"
-					disabled /></td>
+				<TD>seat number:<input type="number" name="seatno" id="text2"
+					 /></td>
 			</TR>
 		</TABLE>
 		<br> <br>

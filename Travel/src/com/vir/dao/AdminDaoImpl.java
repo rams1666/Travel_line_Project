@@ -25,7 +25,7 @@ public class AdminDaoImpl implements AdminDao{
 
 		try {
 			
-			String st="select * from service where serviceId=?";
+			String st="select * from service where service_id=?";
 			pst=(PreparedStatement) con.prepareStatement(st);
 			pst.setInt(1, serviceId);
 			java.sql.ResultSet rs = pst.executeQuery();
@@ -107,7 +107,7 @@ public class AdminDaoImpl implements AdminDao{
 		PreparedStatement ps ;
 		try {
 			con=DBConnection.getConnection();
-			String query = "insert into Service(sourceFrom,sourceTo,fare,distanceKms,capacity,departionTime,journeyTime) values (?,?,?,?,?,?,?)";
+			String query = "insert into Service(source_from,source_to,fare,distance_Kms,capacity,departion_time,journey_time) values (?,?,?,?,?,?,?)";
 			ps=(PreparedStatement) con.prepareStatement(query);
 			//ps.setInt(1, id);
 			ps.setString(1,from);
@@ -188,7 +188,7 @@ public class AdminDaoImpl implements AdminDao{
 
 	@Override
 	public int updateDetails(BusService b) {
-		String sql="update service set sourceFrom = ?,  sourceTo  = ? , fare =?,distanceKms =?, capacity=?,departionTime=?,journeyTime =? where serviceId = ?"; 
+		String sql="update service set source_from = ?,  source_to  = ? , fare =?,distance_Kms =?, capacity=?,departion_time=?,journey_time =? where service_id = ?"; 
 		Connection con = null;
 		java.sql.PreparedStatement ps=null;
 		int status=0;

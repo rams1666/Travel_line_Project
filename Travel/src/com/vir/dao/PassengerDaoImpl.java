@@ -16,7 +16,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			pst=con.prepareStatement("select * from passenger where passengerId=?");
+			pst=con.prepareStatement("select * from passenger where passenger_id=?");
 			pst.setInt(1,passengerId);
 			rs=pst.executeQuery();
 
@@ -25,11 +25,13 @@ public class PassengerDaoImpl implements PassengerDao {
 				bs.setPassengerId(rs.getInt(1));
 				bs.setPassengerName(rs.getString(2));
 				bs.setAge(rs.getInt(3));
-				bs.setSeatNo(rs.getInt(4));
+				bs.setGender(rs.getString(4));
 				bs.setFare(rs.getFloat(5));
+				bs.setSeatNo(rs.getString(6));
+				
 				/*bs.setMailId(rs.getString(4));
 				bs.setMobile(rs.getInt(5));*/
-				bs.setGender(rs.getString(6));
+				
 				/*bs.setComments(rs.getString(7));*/
 
 			}
@@ -61,14 +63,16 @@ public class PassengerDaoImpl implements PassengerDao {
 
 	@Override
 	public String insertDetails(Passenger p) {
-		int pid=p.getPassengerId();
+		//int pid=p.getPassengerId();
 		String pname = p.getPassengerName();
 		int age= p.getAge();
-		int seatNo = p.getSeatNo();
+		String gender= p.getGender();
 		float fare = p.getFare();
+		String seatNo = p.getSeatNo();
+		
 		/*int mobile= p.getMobile();
 		String mailId = p.getMailId();*/
-		String gender= p.getGender();
+		
 
 		Connection con = null;
 		PreparedStatement pSt = null;
@@ -76,16 +80,18 @@ public class PassengerDaoImpl implements PassengerDao {
 		try
 		{  
 			con = DBConnection.getConnection();
-			String query = "insert into passenger(passengerId,passengerName,age,seatNo,fare,gender) values(?,?,?,?,?,?)"; //Insert user details into the table 'USERS'
+			String query = "insert into passenger(passenger_name,age,gender,fare,seatno) values(?,?,?,?,?)"; //Insert user details into the table 'USERS'
 			pSt = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
-			pSt.setInt(1, pid);
-			pSt.setString(2, pname);
-			pSt.setInt(3,age);
-			pSt.setInt(4, seatNo);
-			pSt.setFloat(5, fare);
+			//pSt.setInt(1, pid);
+			pSt.setString(1, pname);
+			pSt.setInt(2,age);
+			pSt.setString(3,gender);
+			
+			pSt.setFloat(4, fare);
+			pSt.setString(5, seatNo);
 			/*preparedStatement.setString(4, mailId);
 			preparedStatement.setInt(5, mobile);*/
-			pSt.setString(6,gender);
+			
 			int i= pSt.executeUpdate();
 			if (i!=0)  //Just to ensure data has been inserted into the database
 				return "SUCCESS"; 

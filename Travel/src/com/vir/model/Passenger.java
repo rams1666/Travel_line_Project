@@ -1,17 +1,20 @@
 package com.vir.model;
 
 public class Passenger {
-	private int passengerId,age,seatNo;
-	private String passengerName,gender;
+	private int passengerId,age;
+	private String passengerName,gender,seatNo;
 	private  float fare;
-	public Passenger(int passengerId, int age, int seatNo, String passengerName, String gender, float fare) {
+	public Passenger(int passengerId, int age, String passengerName, String gender, String seatNo, float fare) {
 		super();
 		this.passengerId = passengerId;
 		this.age = age;
-		this.seatNo = seatNo;
 		this.passengerName = passengerName;
 		this.gender = gender;
+		this.seatNo = seatNo;
 		this.fare = fare;
+	}
+	public Passenger() {
+		super();
 	}
 	public int getPassengerId() {
 		return passengerId;
@@ -25,12 +28,6 @@ public class Passenger {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getSeatNo() {
-		return seatNo;
-	}
-	public void setSeatNo(int seatNo) {
-		this.seatNo = seatNo;
-	}
 	public String getPassengerName() {
 		return passengerName;
 	}
@@ -43,20 +40,23 @@ public class Passenger {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getSeatNo() {
+		return seatNo;
+	}
+	public void setSeatNo(String seatNo) {
+		this.seatNo = seatNo;
+	}
 	public float getFare() {
 		return fare;
 	}
 	public void setFare(float fare) {
 		this.fare = fare;
 	}
-	public Passenger() {
-		super();
-	}
 	@Override
 	public String toString() {
-		return "Passenger [passengerId=" + passengerId + ", age=" + age + ", seatNo=" + seatNo + ", passengerName="
-				+ passengerName + ", gender=" + gender + ", fare=" + fare + "]";
+		return "Passenger [passengerId=" + passengerId + ", age=" + age + ", passengerName=" + passengerName
+				+ ", gender=" + gender + ", seatNo=" + seatNo + ", fare=" + fare + "]";
 	}
-	
+		
  	
 }

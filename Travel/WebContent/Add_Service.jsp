@@ -85,7 +85,7 @@ Departure date:<input type="text" name="departureTime" placeholder="yyyy-mm-dd" 
 Journey Time(hrs):<input type="number" min=3 max=15 name="jTime">
 </pre>
 <!--  Service No:<input type="text" name="serviceno" required="required"><br>-->
-<button type="submit"  value="submit"  id="submit" onclick="Admin.html">submit</button>&nbsp;
+<button type="submit"  value="submit"  id="submit" >submit</button>&nbsp;
 <button onclick="location.href = 'Admin.jsp';" id="myButton" name="">cancel</button>
 </form>
 </div>

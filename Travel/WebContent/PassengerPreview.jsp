@@ -1,3 +1,6 @@
+<%@page import="com.vir.model.Passenger"%>
+<%@page import="com.vir.service.PassengerServiceImpl"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,19 +75,43 @@ color:blue;
 </div>
 <div align="center"><br>
 
-<h2>Payment Form</h2>
-<form action="Ticket.html" method="post">
+<h2>Passenger Details</h2>
+<%
+PassengerServiceImpl ps=new PassengerServiceImpl();
+
+request.getAttribute("pdetails");%>
+<form action="paymentgateway" method="get">
 <div style="width:350px;height:130px;border:1px solid #000;color:blue;background-color:LightGray"><br>
-<pre>
-card holder name:<input type="text" id="card holder name" name="card holder name" pattern="[a-z A-Z]+" placeholder="enter alphabets only" required="required"><br>
-      card number:<input type="text" name="card number" name="number" pattern="[3-6][0-9]{13,16}" placeholder="enter 13/16 digit card number" required="required"><br>
-                  fare:<input type="number" name="fare" value="<%= u.getFare()%>" disabled/></td></tr> 
-</pre>
-<button type="submit"  value="submit"onclick="Ticket.html">submit</button>
-<button type="reset"  value="reset">reset</button><br>
-<button  type="cancel" onclick="location.href='Bus_Home.html';">cancel</button> 
+
+<table >
+<tr>
+<th>Passenger No</th>
+<th>Passenger Name</th>
+<th>Passenger Age</th>
+<th>Gender</th>
+<th>Amount</th>
+<th>Seat No</th>
+</tr>
+<tr>
+<td><c:out value="${pdetails.passengerId }"/></td>
+<td><c:out value="${pdetails.passengerName }"/></td>
+<td><c:out value="${pdetails.age }"/></td>
+<td><c:out value="${pdetails.gender }"/></td>
+<td><c:out value="${pdetails.fare }"/></td>
+<td><c:out value="${pdetails.seatNo }"/></td>
+
+</tr>
+<!-- card holder name:<input type="text" id="card holder name" name="card holder name" pattern="[a-z A-Z]+" placeholder="enter alphabets only" required="required"><br>
+      card number:<input type="text" name="card number" name="number" pattern="[3-6][0-9]{13,16}" placeholder="enter 13/16 digit card number" required="required"><br> -->
+                  <%-- fare:<input type="number" name="fare" value="${pdetails.fare}" disabled/></td></tr> --%>
+                  </table> 
+
+<button type="submit"  value="submit">Proceed</button>
+
+<button  type="cancel" onclick="location.href='Bus_Home.html';">cancel</button>
+</div> 
 </form>
-</div>
+
 </div>
 </body>
 </html>
