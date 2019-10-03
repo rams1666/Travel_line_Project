@@ -79,27 +79,32 @@ color:blue;
 <%
 PassengerServiceImpl ps=new PassengerServiceImpl();
 
-request.getAttribute("pdetails");%>
-<form action="paymentgateway" method="get">
+request.getAttribute("pdetails");
+%>
+<form action="ticketdetails" method="get">
 <div style="width:550px;height:130px;border:10px solid #000;color:blue;background-color:LightGray"><br>
 
 <table style="width: 100%; border:100px">
 <tr>
-<th>Passenger No</th>
+<!-- <th>Passenger No</th>
 <th>Passenger Name</th>
 <th>Passenger Age</th>
 <th>Gender</th>
-<th>Amount</th>
+<th>Amount</th> -->
 <th>Seat No</th>
+<th>Service No</th>
 </tr>
 <tr>
-<td><c:out value="${pdetails.passengerId }"/></td>
+<%-- <td><c:out value="${pdetails.passengerId }"/></td>
 <td><c:out value="${pdetails.passengerName }"/></td>
 <td><c:out value="${pdetails.age }"/></td>
 <td><c:out value="${pdetails.gender }"/></td>
-<td><c:out value="${pdetails.fare }"/></td>
-<td><c:out value="${pdetails.seatNo }"/></td>
-
+<td><c:out value="${pdetails.fare }"/></td> --%>
+<%-- <td><c:out  value="${pdetails.seatNo }"/></td>
+<td><c:out  value="${pdetails.service_id }"/></td> --%>
+<td><input type="number" name="seatno" value="${pdetails.seatNo }"/></td>
+<td><input type="number" name="serviceno" value="${pdetails.service_id }"/></td>
+				
 </tr>
 <!-- card holder name:<input type="text" id="card holder name" name="card holder name" pattern="[a-z A-Z]+" placeholder="enter alphabets only" required="required"><br>
       card number:<input type="text" name="card number" name="number" pattern="[3-6][0-9]{13,16}" placeholder="enter 13/16 digit card number" required="required"><br> -->
@@ -108,7 +113,7 @@ request.getAttribute("pdetails");%>
 
 <button type="submit"  value="submit">Proceed</button>
 
-<button  type="cancel" onclick="location.href='Bus_Home.html';">back</button>
+
 </div> 
 </form>
 

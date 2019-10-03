@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>select Service</title>
 <style>
 table, th {
 	border: 1px solid black;
@@ -58,8 +58,8 @@ table, th {
 
 			<div class="topnav">
 				<a href="Bus_Home.html">Home</a> <a href="ContactUs.html">ContactUs</a>
-				<a href="retrival1.html">Retrival</a> <a href="Feedback.html">Feedback</a>
-				<a href="Admin.html">AdminLogin</a>
+				<a href="retrival1.html">Retrival</a> 
+				<a href="Admin_login.html">AdminLogin</a>
 			</div>
 		</div>
 		<div align="center">
@@ -120,17 +120,17 @@ table, th {
 							<td>${bs.busCapacity }</td>
 							<td>${bs.departureTime }</td>
 							<td>${bs.journeyTime }</td>
-							<td><button type="submit" value="submit" >submit</button></td>
+							<td><button type="submit" value="submit">submit</button></td>
 						</tr>
 
 					</c:forEach>
 
 				</table>
 				<br>
-				<button onclick="location.href = 'Bus_Home.html';" id="myButton"
-					name="back">back</button>
+				
 
 			</form>
+			<button onclick="location.href = 'Bus_Home.html';"  name="back">back</button>
 		</div>
 	</div>
 </body>

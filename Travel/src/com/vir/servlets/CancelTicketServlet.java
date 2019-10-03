@@ -1,23 +1,29 @@
 package com.vir.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vir.service.AdminService;
+import com.vir.service.AdminServiceImpl;
+import com.vir.service.PassengerServiceImpl;
+
 /**
- * Servlet implementation class InsertFeedbackServlet
+ * Servlet implementation class DeleteServiceServlet
  */
-@WebServlet("/InsertFeedbackServlet")
-public class InsertFeedbackServlet extends HttpServlet {
+@WebServlet({ "/DeleteServiceServlet" })
+public class CancelTicketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertFeedbackServlet() {
+    public CancelTicketServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +32,11 @@ public class InsertFeedbackServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int tid=Integer.parseInt(request.getParameter("ticketno"));  
+          PassengerServiceImpl psi = new PassengerServiceImpl();
+          psi.delete(tid);  
+        response.sendRedirect("cancel.html");  
+			
 	}
 
 	/**
@@ -35,12 +44,7 @@ public class InsertFeedbackServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		String pname = request.getParameter("passengerName");
-		String email = request.getParameter("email");
-		String comments = request.getParameter("comments");
-		
-		
+		doGet(request, response);
 	}
 
 }

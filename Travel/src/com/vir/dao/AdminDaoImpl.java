@@ -107,15 +107,14 @@ public class AdminDaoImpl implements AdminDao{
 		PreparedStatement ps ;
 		try {
 			con=DBConnection.getConnection();
-			String query = "insert into Service(source_from,source_to,fare,distance_Kms,capacity,departion_time,journey_time) values (?,?,?,?,?,?,?)";
+			String query = "insert into Service(source_from,source_to,capacity,fare,distance_Kms,departion_time,journey_time) values (?,?,?,?,?,?,?)";
 			ps=(PreparedStatement) con.prepareStatement(query);
 			//ps.setInt(1, id);
 			ps.setString(1,from);
 			ps.setString(2, to);
-			
-			ps.setFloat(3, fare);
-			ps.setFloat(4, distance);
-			ps.setInt(5, capacity);
+			ps.setInt(3, capacity);
+			ps.setFloat(4, fare);
+			ps.setFloat(5, distance);
 			ps.setString(6,  dt);
 			ps.setString(7,jt);
 			int i = ps.executeUpdate();

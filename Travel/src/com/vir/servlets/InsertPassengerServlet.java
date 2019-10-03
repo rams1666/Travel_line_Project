@@ -45,12 +45,18 @@ public class InsertPassengerServlet extends HttpServlet {
 		//doGet(request, response);
 		response.setContentType("text/html");  
 		PrintWriter out=response.getWriter();
+		PassengerServiceImpl ps = new PassengerServiceImpl();
+		
 	    String pname=(request.getParameter("pname"));
 	    int age =Integer.parseInt( request.getParameter("age"));
 	    String gender=(request.getParameter("gender"));
 	   
 	    float fare =Float.parseFloat(request.getParameter("fare"));
 	    String seatno = (request.getParameter("seatno"));
+	    int sid = Integer.parseInt(request.getParameter("serviceno"));
+	    
+	    
+	    //request.getParameter(arg0);
 		
 		Passenger p = new Passenger();
 		p.setPassengerName(pname);
@@ -58,6 +64,7 @@ public class InsertPassengerServlet extends HttpServlet {
 		p.setGender(gender);
 		p.setFare(fare);
 		p.setSeatNo(seatno);
+		p.setService_id(sid);
 		
 		PassengerServiceImpl psi = new PassengerServiceImpl();
 		/*
@@ -71,7 +78,7 @@ public class InsertPassengerServlet extends HttpServlet {
 			
 			System.out.println("sucess msg");
 			out.print("<p>Record saved successfully!</p>");  
-			request.getRequestDispatcher("/PassengerPreview.jsp").include(request, response); 
+			request.getRequestDispatcher("PassengerPreview.jsp").forward(request, response); 
 		}
 		else   
 		{

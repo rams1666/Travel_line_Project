@@ -6,5 +6,6 @@ public interface PassengerService {
 	String insertDetails(Passenger p);
 
 	Passenger getDetails(int passengerId);
-	/*String insertFeedback(Passenger p);*/
+	 int delete(int passengerId);
+	Passenger getTicket(int service_no,String seatno);
 }

@@ -16,7 +16,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try {
-			pst=con.prepareStatement("select * from passenger where passenger_id=?");
+			pst=con.prepareStatement("select ticket_id,passenger_name,age ,gender,p.fare,seatno,source_from,source_to,departion_time,journey_time,s.service_id from service s join passenger p where  s.service_id=p.service_id and ticket_id=?;");
 			pst.setInt(1,passengerId);
 			rs=pst.executeQuery();
 
@@ -29,6 +29,11 @@ public class PassengerDaoImpl implements PassengerDao {
 				bs.setFare(rs.getFloat(5));
 				bs.setSeatNo(rs.getString(6));
 				
+				bs.setFrom(rs.getString(7));
+				bs.setTo(rs.getString(8));
+				bs.setDepartureTime(rs.getString(9));
+				bs.setReporting(rs.getString(10));
+				bs.setService_id(rs.getInt(11));
 				/*bs.setMailId(rs.getString(4));
 				bs.setMobile(rs.getInt(5));*/
 				
@@ -68,6 +73,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		int age= p.getAge();
 		String gender= p.getGender();
 		float fare = p.getFare();
+		int id = p.getService_id();
 		String seatNo = p.getSeatNo();
 		
 		/*int mobile= p.getMobile();
@@ -80,7 +86,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		try
 		{  
 			con = DBConnection.getConnection();
-			String query = "insert into passenger(passenger_name,age,gender,fare,seatno) values(?,?,?,?,?)"; //Insert user details into the table 'USERS'
+			String query = "insert into passenger(passenger_name,age,gender,fare,service_id,seatno) values(?,?,?,?,?,?)"; //Insert user details into the table 'USERS'
 			pSt = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
 			//pSt.setInt(1, pid);
 			pSt.setString(1, pname);
@@ -88,7 +94,8 @@ public class PassengerDaoImpl implements PassengerDao {
 			pSt.setString(3,gender);
 			
 			pSt.setFloat(4, fare);
-			pSt.setString(5, seatNo);
+			pSt.setInt(5,id);
+			pSt.setString(6, seatNo);
 			/*preparedStatement.setString(4, mailId);
 			preparedStatement.setInt(5, mobile);*/
 			
@@ -104,34 +111,84 @@ public class PassengerDaoImpl implements PassengerDao {
 		return "Oops.. Something went wrong there..!";
 	}
 
-	/*@Override
-	public String insertFeedback(Passenger p) {
-		int pid=p.getPassengerId();
-		String comments = p.getComments();
-		Connection con = null;
-		PreparedStatement preparedStatement = null;
+	@Override
+	public Passenger getTicket(int service_no, String seatno) 
+		
+	{
+		Connection con=DBConnection.getConnection();
+		Passenger bs=null;
 
-		try
-		{  
-			con = DBConnection.getConnection();
-			String query = "update passenger set comments=? where passengerId=?"; //Insert user details into the table 'USERS'
-			preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
+		PreparedStatement pst=null;
+		ResultSet rs=null;
+		try {
+			pst=con.prepareStatement("select ticket_id,passenger_name,age ,gender,p.fare,seatno,source_from,source_to,departion_time,journey_time,s.service_id from service s join passenger p where  s.service_id=p.service_id and s.service_id=? and seatno=?;");
+			pst.setInt(1,service_no);
+			pst.setString(2, seatno);
+			rs=pst.executeQuery();
 
-			preparedStatement.setString(1, comments);
-			preparedStatement.setInt(2,pid);
-			int i= preparedStatement.executeUpdate();
-			if (i!=0)  //Just to ensure data has been inserted into the database
-				return "SUCCESS"; 
-		}
-		catch(SQLException e)
-		{
+			while(rs.next()) {
+				bs=new Passenger();
+				bs.setPassengerId(rs.getInt(1));
+				bs.setPassengerName(rs.getString(2));
+				bs.setAge(rs.getInt(3));
+				bs.setGender(rs.getString(4));
+				bs.setFare(rs.getFloat(5));
+				bs.setSeatNo(rs.getString(6));
+				
+				bs.setFrom(rs.getString(7));
+				bs.setTo(rs.getString(8));
+				bs.setDepartureTime(rs.getString(9));
+				bs.setReporting(rs.getString(10));
+				bs.setService_id(rs.getInt(11));
+				/*bs.setMailId(rs.getString(4));
+				bs.setMobile(rs.getInt(5));*/
+				
+				/*bs.setComments(rs.getString(7));*/
+
+			}
+
+
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally
+		{
+			try {
+				if(pst!=null) {
+					pst.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			try {
+				if(rs!=null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bs;
 
+	}
 
+	@Override
+	public int delete(int passengerId) {
+		  int status=0;  
+	        try{  
+	            Connection con=DBConnection.getConnection(); 
+	            PreparedStatement ps=con.prepareStatement("delete from passenger where ticket_id=?");  
+	            ps.setInt(1,passengerId);  
+	            status=ps.executeUpdate();  
+	              
+	            con.close();  
+	        }catch(Exception e){e.printStackTrace();}  
+	          
+	        return status;  
 		
 	}
-		return "Oops.. Something went wrong there..!";
 
 	
-}*/
+
+	
 }

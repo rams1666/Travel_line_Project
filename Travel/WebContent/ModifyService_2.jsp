@@ -70,7 +70,7 @@ request.getAttribute("empdetails");
  <th>Departure Time</th>
 <th>Journey Date</th>
 <th>Edit</th>
-<th>Delete</th>
+
 </tr>  
  <tr>     
 <td><c:out value="${empdetails.serviceId}"/></td>
@@ -82,7 +82,7 @@ request.getAttribute("empdetails");
 <td><c:out value="${empdetails.departureTime}"/></td>
 <td><c:out value="${empdetails.journeyTime}"/></td>
 <td><a href="EditForm.jsp?service_no=${empdetails.getServiceId()}">Edit</a></td>  
-<td><a href="DeleteServiceServlet">Delete</a></td>
+
 </tr>
 </table>  
 </body>

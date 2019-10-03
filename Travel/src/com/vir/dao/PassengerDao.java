@@ -6,8 +6,9 @@ public interface PassengerDao {
 	String insertDetails(Passenger p);
 	
 	Passenger getDetails(int passengerId);
+	Passenger getTicket(int service_no,String seatno);
 	
-	/*String insertFeedback(Passenger p);*/
+	 int delete(int passengerId);
 	
 	
 }

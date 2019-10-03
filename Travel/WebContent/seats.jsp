@@ -249,7 +249,7 @@ table, th {
 
 			<TR>
 
-
+				
 				<TD>name<INPUT type="text" name="pname" required="required"
 					pattern="[a-z A-Z]+" /></TD>
 				<TD>age<INPUT type="number" min="1" required="required" name="age" /></TD>
@@ -260,7 +260,7 @@ table, th {
 				</SELECT>
 				</TD>
 				<td>fare:<input type="text" name="fare" id="text4" value="${seat.fare }"   /></td>
-
+				<td>ServiceNo<input type="number" name="serviceno" value="${seat.serviceId }"/></td>
 
 				<TD>seat number:<input type="number" name="seatno" id="text2"
 					 /></td>

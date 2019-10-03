@@ -38,7 +38,6 @@ public class SelectSeatServlet extends HttpServlet {
 		AdminServiceImpl asi = new AdminServiceImpl();
 		BusService service = asi.getService(serviceId);
 		request.setAttribute("seat", service);
-		
 		RequestDispatcher rd=request.getRequestDispatcher("seats.jsp");
 		rd.forward(request, response);
 		

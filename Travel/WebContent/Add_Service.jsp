@@ -86,7 +86,7 @@ Journey Time(hrs):<input type="number" min=3 max=15 name="jTime">
 </pre>
 <!--  Service No:<input type="text" name="serviceno" required="required"><br>-->
 <button type="submit"  value="submit"  id="submit" >submit</button>&nbsp;
-<button onclick="location.href = 'Admin.jsp';" id="myButton" name="">cancel</button>
+<button onclick="location.href = 'Admin.html';" id="myButton" name="">back</button>
 </form>
 </div>
 </body>
