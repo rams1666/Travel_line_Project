@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit</title>
 <style>
 table, th{
   border: 1px solid black;
@@ -31,8 +31,8 @@ background: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
- padding-top: 10px;
- margin-left: 5em;
+  padding-top: 10px;
+ margin-left: 8em;
 }
 
 .topnav a:hover {
@@ -51,6 +51,7 @@ background: white;
 <div class="nav-collapse">
 <div class="topnav">
 <a href="Add_Service.jsp">Add Service</a>
+<a href="schedule">Schedule</a>
 <a href="Admin_login.jsp">Logout</a>
 </div>
 </div>
@@ -58,7 +59,9 @@ background: white;
 <%BusService bs=new BusService();
 request.getAttribute("empdetails");
 %>
-<h1>Service List</h1> 
+<center>
+<h1>Edit Service</h1>
+
 <table border="1" width="90%">  
 <tr>
 <th>ServiceId</th>
@@ -85,5 +88,6 @@ request.getAttribute("empdetails");
 
 </tr>
 </table>  
+</center>
 </body>
 </html>

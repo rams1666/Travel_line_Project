@@ -69,8 +69,10 @@ public class UpdateServiceServlet1 extends HttpServlet {
         //int status=E.update(e);
         
         if(status>0){  
-            response.sendRedirect("ModifyService_2.jsp"); 
-            out.println("successfully modified ");
+        	 
+            response.sendRedirect("Admin.html"); 
+            out.print("<p>Record updated successfully!</p>"); 
+            
         }else{  
             out.println("Sorry! unable to update record"); 
             response.sendRedirect("ModifyService_1.jsp");

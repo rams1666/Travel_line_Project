@@ -28,7 +28,7 @@ background: white;
   padding: 14px 16px;
   text-decoration: none;
  padding-top: 10px;
- margin-left: 5em;
+ margin-left: 8em;
 }
 
 .topnav a:hover {
@@ -53,13 +53,14 @@ background: white;
 <div class="nav-collapse">
 <div class="topnav">
 <a href="Add_Service.jsp">Add Service</a>
-<a href="Admin_login.jsp">Logout</a>
+<a href="schedule">Schedule</a>
+<a href="Admin_login.html">Logout</a>
 </div>
 </div>
 <div align="center" ><br>
 <h3>Modify Services</h3>
 <form action="getservice" method="get">
-Service Number:<input type="number" min="100" name="service_no" required="required"><br><br>
+Service Number:<input type="number" min="1" name="service_no" required="required"><br><br>
 <button type="submit"  value="submit" id="submit">Submit</button>&nbsp;
 <button type="submit" onclick="location.href = 'Admin.html';"  value="cancel">cancel</button>&nbsp;<br>
 </form>

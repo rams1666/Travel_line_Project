@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit</title>
 <style>
 table, th{
   border: 1px solid black;
@@ -30,7 +30,7 @@ background: white;
   padding: 14px 16px;
   text-decoration: none;
  padding-top: 10px;
- margin-left: 5em;
+ margin-left: 8em;
 }
 
 .topnav a:hover {
@@ -54,6 +54,7 @@ background: white;
 <div class="nav-collapse">
 <div class="topnav">
 <a href="Add_Service.jsp">Add Service</a>
+<a href="schedule">Schedule</a>
 <a href="Admin_login.jsp">Logout</a>
 </div>
 </div>
@@ -72,19 +73,19 @@ request.getAttribute("empdetails");
 <input type="hidden" name="sid" value="<%=u.getServiceId() %>"/>  
 <table border="1" width="90%">  
 <tr><th>From:</th><td>  
-<input type="text" name="from" value="<%= u.getServiceFrom()%>" disabled="disabled"/></td></tr>  
+<input type="text" name="from" value="<%= u.getServiceFrom()%>" required="required" /></td></tr>  
 <tr><th>To:</th><td>  
-<input type="text" name="to" value="<%= u.getServiceTo()%> "disabled="disabled"/></td></tr>  
+<input type="text" name="to" value="<%= u.getServiceTo()%> "required="required"/></td></tr>  
 <tr><th>Fare:</th><td>  
-<input type="text" name="fare" value="<%= u.getFare()%>"/></td></tr> 
+<input type="text" name="fare" value="<%= u.getFare()%>" required="required"/></td></tr> 
 <tr><th>Distance:</th><td>  
-<input type="number" min=100 name="distance" value="<%= u.getDistance()%>"/></td></tr> 
+<input type="number" min=100 name="distance" value="<%= u.getDistance()%>" required="required"/></td></tr> 
 <tr><th>Capacity:</th><td>  
-<input type="number" name="capacity" value="<%= u.getBusCapacity()%>" disabled="disabled"/></td></tr> 
+<input type="number" name="capacity" value="<%= u.getBusCapacity()%>" required="required"/></td></tr> 
 <tr><th>Departure Time:</th><td>  
-<input type="text" name="deaparture" value="<%= u.getDepartureTime()%>"/></td></tr> 
+<input type="text" name="deaparture" value="<%= u.getDepartureTime()%>"required="required"/></td></tr> 
 <tr><th>Journey Time:</th><td>  
-<input type="number" name="journey" value="<%= u.getJourneyTime()%>"/></td></tr>   
+<input type="number" name="journey" value="<%= u.getJourneyTime()%>" required="required"/></td></tr>   
 <tr><td colspan="2"><input type="submit" value="update"/></td></tr>  
 </table>  
 </form>  

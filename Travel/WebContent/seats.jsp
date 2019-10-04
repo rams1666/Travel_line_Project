@@ -71,7 +71,6 @@ table, th {
 	function add() {
 		var boxes = document.f1.checkbox.length;
 		var txt = "";
-		//var fare = 0;
 		num = 1;
 		for (var i = 0; i < boxes; i++) {
 			if (document.f1.checkbox[i].checked) {
@@ -259,11 +258,10 @@ table, th {
 						<OPTION value="other">Other</OPTION>
 				</SELECT>
 				</TD>
-				<td>fare:<input type="text" name="fare" id="text4" value="${seat.fare }"   /></td>
-				<td>ServiceNo<input type="number" name="serviceno" value="${seat.serviceId }"/></td>
+				<td><input type="hidden" name="fare" id="text4" value="${seat.fare }"   /></td>
+				<td><input type="hidden" name="serviceno" value="${seat.serviceId }"/></td>
 
-				<TD>seat number:<input type="number" name="seatno" id="text2"
-					 /></td>
+				<TD>seat number:<input type="number" name="seatno" id="text2" required="required"/></td>
 			</TR>
 		</TABLE>
 		<br> <br>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Payment </title>
+<title>Book</title>
 <style>
 button[type=submit], button[type=reset],button[type=cancel]{
   background-color: #4CAF50;
@@ -65,13 +65,13 @@ color:blue;
 </div>
 <div class="nav-collapse">
 
-<div class="topnav">
+<!-- <div class="topnav">
 
 <a href="Bus_Home.html">Home</a>
 <a href="ContactUs.html">Contact Us</a>
 <a href="retrival1.html">Retrieval</a>
 <a href="Admin_login.html">Admin Login</a>
-</div>
+</div> -->
 </div>
 <div align="center"><br>
 
@@ -85,32 +85,16 @@ request.getAttribute("pdetails");
 <div style="width:550px;height:130px;border:10px solid #000;color:blue;background-color:LightGray"><br>
 
 <table style="width: 100%; border:100px">
+
 <tr>
-<!-- <th>Passenger No</th>
-<th>Passenger Name</th>
-<th>Passenger Age</th>
-<th>Gender</th>
-<th>Amount</th> -->
-<th>Seat No</th>
-<th>Service No</th>
-</tr>
-<tr>
-<%-- <td><c:out value="${pdetails.passengerId }"/></td>
-<td><c:out value="${pdetails.passengerName }"/></td>
-<td><c:out value="${pdetails.age }"/></td>
-<td><c:out value="${pdetails.gender }"/></td>
-<td><c:out value="${pdetails.fare }"/></td> --%>
-<%-- <td><c:out  value="${pdetails.seatNo }"/></td>
-<td><c:out  value="${pdetails.service_id }"/></td> --%>
-<td><input type="number" name="seatno" value="${pdetails.seatNo }"/></td>
-<td><input type="number" name="serviceno" value="${pdetails.service_id }"/></td>
+<br>
+&emsp;&emsp;&emsp;<td>Seat No: <input type="number" name="seatno" style ="width:60PX;" value="${pdetails.seatNo }"/></td>
+<td>Service No: <input type="number" name="serviceno" style ="width:60PX;" value="${pdetails.service_id }"/></td>
 				
 </tr>
-<!-- card holder name:<input type="text" id="card holder name" name="card holder name" pattern="[a-z A-Z]+" placeholder="enter alphabets only" required="required"><br>
-      card number:<input type="text" name="card number" name="number" pattern="[3-6][0-9]{13,16}" placeholder="enter 13/16 digit card number" required="required"><br> -->
-                  <%-- fare:<input type="number" name="fare" value="${pdetails.fare}" disabled/></td></tr> --%>
-                  </table> 
 
+                  </table> 
+<br>
 <button type="submit"  value="submit">Proceed</button>
 
 

@@ -50,8 +50,8 @@ public class GetTicketServlet extends HttpServlet {
 
 			}
 			else {
-				out.println("sorry......!");
-				RequestDispatcher rd=request.getRequestDispatcher("/");
+				out.println("<p>Sorry....!No Details with that ticket number</p>");
+				RequestDispatcher rd=request.getRequestDispatcher("/Bus_Home.html");
 				rd.forward(request, response);
 			}
 	}

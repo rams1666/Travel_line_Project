@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Schedule</title>
 <style>
 table, th{
   border: 1px solid black;
@@ -57,15 +57,14 @@ background: white;
 <div class="nav-collapse">
 
 <div class="topnav">
-<a href="Add_Service.html">Add Service</a>
-<a href="Feedback.html">View Feeedback</a>
-<a href="Modify_Service.html">Modify Service</a>
-<a href="Bus_Home.html">Logout</a>
+<a href="Add_Service.jsp">Add Service</a>
+<a href="ModifyService_1.jsp">Modify Service</a>
+<a href="Admin_login.html">Logout</a>
 </div>
 </div>
 <div align="center" ><br>
 
-
+<h2>Schedule</h2>
 
   <table style="width:100%" border="100px">
   <tr>

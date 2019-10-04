@@ -120,7 +120,7 @@ table, th {
 							<td>${bs.busCapacity }</td>
 							<td>${bs.departureTime }</td>
 							<td>${bs.journeyTime }</td>
-							<td><button type="submit" value="submit">submit</button></td>
+							<td><button type="submit" value="submit">select</button></td>
 						</tr>
 
 					</c:forEach>

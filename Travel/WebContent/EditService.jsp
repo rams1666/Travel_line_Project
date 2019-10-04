@@ -20,7 +20,8 @@ BusService busService=new BusService();
 int i=asi.updateDetails(b);  
 //request.setAttribute("data", i);
 if(i>0){  
-            response.sendRedirect("ModifyService_2"); 
+			
+            response.sendRedirect("Admin.html"); 
             out.println("successfully modified ");
         }else{  
             out.println("Sorry! unable to update record");  

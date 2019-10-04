@@ -41,6 +41,12 @@ background: white;
   margin-left: 1em;
 
 }
+pre
+{
+font-family:verdana;
+font-size:14;
+color:blue;
+}
 </style>
 </head>
 <body>
@@ -51,7 +57,7 @@ background: white;
 <div class="nav-collapse">
 
 <div class="topnav">
-<a href="Modify_Service.jsp">Modify Service</a>
+<a href="ModifyService_1.jsp">Modify Service</a>
 <a href="schedule">Schedule</a>
 <a href="Admin_login.jsp">Logout</a></div>
 </div>
@@ -67,22 +73,24 @@ From:<select name="from">
 <option>kakinada</option>
 <option>Vizag</option>
 </select>
-To:<select name="to">
+
+   To:<select name="to">
 <option>Tuni</option>
 <option>Hyderabad</option>
 
 <option>kakinada</option>
 <option>Vizag</option>
 </select>
-Capacity:<input type="number" name="capacity" min=36 max=36 >
-<!-- Type:<select name="type">
-<option>A/C Bus</option>
-<option>Non A/C bus</option>
-</select><br><br> -->
-Fare:<input type="number" name="fare" min=400 required="required">
-Distance(kms):<input type="text" name="distance" required="required">
-Departure date:<input type="text" name="departureTime" placeholder="yyyy-mm-dd" required="required">
-Journey Time(hrs):<input type="number" min=3 max=15 name="jTime">
+
+     Capacity:<input type="number" name="capacity" min=36 max=36 required="required">
+     
+           Fare:<input type="number" name="fare" min=400 required="required">
+           
+      Distance:<input type="text" name="distance" required="required">
+      
+journey date:<input type="text" name="departureTime" placeholder="yyyy-mm-dd" required="required">
+
+Journey Time:<input type="number" min=1 max=24 name="jTime" required="required">
 </pre>
 <!--  Service No:<input type="text" name="serviceno" required="required"><br>-->
 <button type="submit"  value="submit"  id="submit" >submit</button>&nbsp;
